@@ -32,7 +32,6 @@ namespace Com.AdrienHeisch.NotSpaceWar
         [NonSerialized] public Vector2 velocity = new Vector2();
         [NonSerialized] public Vector2 acceleration = new Vector2();
         [NonSerialized] public Vector2 spawnPosition;
-        //[NonSerialized] public ShipScore score = new ShipScore();
         private int health;
         private float turningSpeed = 0;
         private float shootTimer = 0;
@@ -52,7 +51,7 @@ namespace Com.AdrienHeisch.NotSpaceWar
         private void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
-            controller = GetComponent<KeyboardShipController>();
+            controller = GetComponent<PlayerShipController>();
             if (controller == null) controller = GetComponent<AIShipController>();
 
             spawnPosition = transform.position;
@@ -66,7 +65,6 @@ namespace Com.AdrienHeisch.NotSpaceWar
             transform.position = spawnPosition;
             transform.right = -transform.position;
             gameObject.SetActive(true);
-            //Ship.onDeath += Ship_OnDeath;
             Bullet.onHit += Bullet_OnHit;
         }
 
@@ -76,7 +74,7 @@ namespace Com.AdrienHeisch.NotSpaceWar
             float lMaxSpeed = BASE_MAX_SPEED * (controller.boost ? BOOST_MULT : 1);
             float lTurningAcceleration = 0;
 
-            if (controller.shoot && shootTimer <= 0) Shoot();
+            if (controller.fire && shootTimer <= 0) Shoot();
             else if (shootTimer > 0) shootTimer -= Time.deltaTime;
             
             lTurningAcceleration = ((controller.left ? 1 : 0) - (controller.right ? 1 : 0)) * TURNING_ACCELERATION_VALUE;
@@ -146,19 +144,7 @@ namespace Com.AdrienHeisch.NotSpaceWar
                     onDeath(damagingShip, this);
                 }
             }
-            //else if (damagingShip == this)
-            //{
-            //    score.hits++;
-            //}
         }
-
-        //private void Ship_OnDeath(Ship killerShip, Ship killedShip)
-        //{
-        //    if (killerShip == this)
-        //    {
-        //        score.kills++;
-        //    }
-        //}
 
         public float GetHealthFraction () { return (float)health / MAX_HEALTH; }
 
@@ -168,7 +154,6 @@ namespace Com.AdrienHeisch.NotSpaceWar
             list.Remove(this);
             velocity.Set(0, 0);
             acceleration.Set(0, 0);
-            //Ship.onDeath -= Ship_OnDeath;
             Bullet.onHit -= Bullet_OnHit;
             gameObject.SetActive(false);
         }

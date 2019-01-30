@@ -4,12 +4,13 @@
 ///-----------------------------------------------------------------
 
 using Com.AdrienHeisch.UI;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Com.AdrienHeisch.NotSpaceWar.UI
 {
-    public class ShipHUD : MonoBehaviour
+    public class ShipHUD : MonoBehaviour //TODO This whole system is poorly designed, should use a shared state with ships instead of direct reference
 	{
 
         [SerializeField] private Ship ship;
@@ -21,7 +22,6 @@ namespace Com.AdrienHeisch.NotSpaceWar.UI
         private void Start ()
         {
             healthBar.gradient.SetKeys(new[] { new GradientColorKey(ship.color, 0) }, new[] { new GradientAlphaKey(1, 0) });
-            UpdateDisplay();
 
             Bullet.onHit += Bullet_OnHit;
             Ship.onDeath += Ship_OnDeath;

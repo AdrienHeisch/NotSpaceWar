@@ -56,8 +56,8 @@ namespace Com.AdrienHeisch.NotSpaceWar
                     Component aiController = ships[i].GetComponent<AIShipController>();
                     if (aiController != null) Destroy(aiController);
 
-                    Component playerController = ships[i].GetComponent<KeyboardShipController>();
-                    if (playerController == null) ships[i].gameObject.AddComponent<KeyboardShipController>();
+                    Component playerController = ships[i].GetComponent<PlayerShipController>();
+                    if (playerController == null) ships[i].gameObject.AddComponent<PlayerShipController>();
                 }
 
                 Vector2 position = new Vector2();

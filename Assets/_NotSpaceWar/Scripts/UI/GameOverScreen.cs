@@ -25,8 +25,8 @@ namespace Com.AdrienHeisch.NotSpaceWar.UI
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space)) onRestart.Invoke(); //TODO Serialize keys
-            if (Input.GetKeyDown(KeyCode.Escape)) onReturn.Invoke();
+            if (Input.GetButton("Submit")) onRestart.Invoke();
+            if (Input.GetButton("Cancel")) onReturn.Invoke();
         }
 
     }

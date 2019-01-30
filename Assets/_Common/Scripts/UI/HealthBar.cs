@@ -12,17 +12,21 @@ namespace Com.AdrienHeisch.UI
 	public class HealthBar : MonoBehaviour
 	{
 
-        [Range(0, 1)] public float value = 1;
+        [Range(0, 1)] [SerializeField] private float _value = 1;
         [SerializeField] private Image fill;
         [SerializeField] private Slider slider;
 
         public Gradient gradient;
-
-        private void Update()
+        public float value
         {
-            slider.value = value;
-            fill.color = gradient.Evaluate(value);
+            get { return _value; }
+            set
+            {
+                slider.value = value;
+                fill.color = gradient.Evaluate(value);
+                _value = value;
+            }
         }
-
+        
     }
 }

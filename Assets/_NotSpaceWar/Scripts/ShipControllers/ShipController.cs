@@ -7,15 +7,14 @@ using UnityEngine;
 
 namespace Com.AdrienHeisch.NotSpaceWar.ShipControllers
 {
-    public abstract class ShipController : MonoBehaviour //TODO Gamepad controller
+    public abstract class ShipController : MonoBehaviour
 	{
 
         public bool left { get; protected set; }
         public bool right { get; protected set; }
         public bool up { get; protected set; }
-        public bool down { get; protected set; }
         public bool boost { get; protected set; }
-        public bool shoot { get; protected set; }
+        public bool fire { get; protected set; }
 
         private void Awake ()
         {
@@ -27,9 +26,8 @@ namespace Com.AdrienHeisch.NotSpaceWar.ShipControllers
             left = false;
             right = false;
             up = false;
-            down = false;
             boost = false;
-            shoot = false;
+            fire = false;
         }
 
     }

@@ -57,9 +57,9 @@ namespace Com.AdrienHeisch.NotSpaceWar.ShipControllers
                 if (lAngleDelta > -AIM_ANGLE && lAngleDelta < AIM_ANGLE)
                 {
                     boost = lDistanceToTarget > DISTANCE_BEFORE_ACCELERATION;
-                    shoot = true;
+                    fire = true;
                 }
-                else shoot = false;
+                else fire = false;
 
                 up = true;
             }

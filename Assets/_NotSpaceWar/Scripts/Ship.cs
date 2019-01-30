@@ -32,7 +32,7 @@ namespace Com.AdrienHeisch.NotSpaceWar
         [NonSerialized] public Vector2 velocity = new Vector2();
         [NonSerialized] public Vector2 acceleration = new Vector2();
         [NonSerialized] public Vector2 spawnPosition;
-        [NonSerialized] public ShipScore score = new ShipScore();
+        //[NonSerialized] public ShipScore score = new ShipScore();
         private int health;
         private float turningSpeed = 0;
         private float shootTimer = 0;
@@ -66,7 +66,7 @@ namespace Com.AdrienHeisch.NotSpaceWar
             transform.position = spawnPosition;
             transform.right = -transform.position;
             gameObject.SetActive(true);
-            Ship.onDeath += Ship_OnDeath;
+            //Ship.onDeath += Ship_OnDeath;
             Bullet.onHit += Bullet_OnHit;
         }
 
@@ -146,19 +146,19 @@ namespace Com.AdrienHeisch.NotSpaceWar
                     onDeath(damagingShip, this);
                 }
             }
-            else if (damagingShip == this)
-            {
-                score.hits++;
-            }
+            //else if (damagingShip == this)
+            //{
+            //    score.hits++;
+            //}
         }
 
-        private void Ship_OnDeath(Ship killerShip, Ship killedShip)
-        {
-            if (killerShip == this)
-            {
-                score.kills++;
-            }
-        }
+        //private void Ship_OnDeath(Ship killerShip, Ship killedShip)
+        //{
+        //    if (killerShip == this)
+        //    {
+        //        score.kills++;
+        //    }
+        //}
 
         public float GetHealthFraction () { return (float)health / MAX_HEALTH; }
 
@@ -168,6 +168,7 @@ namespace Com.AdrienHeisch.NotSpaceWar
             list.Remove(this);
             velocity.Set(0, 0);
             acceleration.Set(0, 0);
+            //Ship.onDeath -= Ship_OnDeath;
             Bullet.onHit -= Bullet_OnHit;
             gameObject.SetActive(false);
         }

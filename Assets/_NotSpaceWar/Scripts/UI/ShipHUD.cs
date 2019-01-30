@@ -47,6 +47,7 @@ namespace Com.AdrienHeisch.NotSpaceWar.UI
 
         private void Bullet_OnHit (Ship damagingShip, Ship damagedShip, int damage)
         {
+            if (damagingShip == ship) shipInfo.hits += damage;
             UpdateDisplay();
         }
 

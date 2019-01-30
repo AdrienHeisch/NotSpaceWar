@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5ab3dea4a5d2d4f85a02cf2ac9573e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {r: 1, g: 1, b: 1, a: 1}
   MAX_HEALTH: 5
   MAX_TURNING_SPEED: 180
   TURNING_ACCELERATION_VALUE: 900
@@ -146,8 +147,6 @@ MonoBehaviour:
     type: 2}
   explosionPrefab: {fileID: 1531921495194964, guid: ffe1789a46007f64ca6fc723b65f3295,
     type: 2}
-  score: {fileID: 0}
-  color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &212403086865592920
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -228,7 +227,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1466526201
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c06ff1c859802964c952be62a49032b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -5,9 +5,6 @@
 [Bb]uilds/
 [Ll]ogs/
 
-Build/*
-!Build/WebGL/
-
 # Never ignore Asset meta data
 ![Aa]ssets/**/*.meta
 
